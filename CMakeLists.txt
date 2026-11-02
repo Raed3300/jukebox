@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.21.0)
-set(CMAKE_CXX_STANDARD 23)
+# Geode SDK and the Apple Clang toolchains used in CI still have incomplete
+# C++23 support for some dependency headers. Keep the project on C++20 to match
+# the SDK's supported language mode and avoid build failures in the nightly build.
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
